@@ -1,4 +1,13 @@
 # coding:utf-8
+'''
+n : 仕事の個数
+S : 仕事の開始時間
+T : 仕事の終了時間
+ex.
+5
+1 2 4 6 8
+3 5 7 9 10
+'''
 
 n = int(input())
 S = list(map(int, input().split()))
