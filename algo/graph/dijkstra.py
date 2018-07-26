@@ -49,6 +49,13 @@ def dijkstra(start):
         path.append(str(next+1))
         if next == -1: break
     print(' -> '.join(path))
+    '''
+    出力:1 -> 2 -> 3 -> 4 -> 6 -> 5 -> 7 -> 0
+    頂点4の次に頂点5ではなく頂点6を先に探索している
+    出発点から頂点6(F)までのコストcost6 = 8
+    出発点から頂点5(E)までのコストcost5 = 12
+    cost6 < cost5なので先に頂点6を探索している
+    '''
     print_path()
 
 if __name__ == '__main__':
