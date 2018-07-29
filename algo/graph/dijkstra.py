@@ -60,3 +60,4 @@ def dijkstra(start):
 
 if __name__ == '__main__':
     dijkstra(0)#頂点Aが出発点
+    #出発点を変える時はvisited, cost, prevを初期化すること
