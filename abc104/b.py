@@ -1,6 +1,7 @@
 #coding:utf-8
 
 s = input()
+
 ans = 'AC'
 if s[0] != 'A': ans = 'WA'
 

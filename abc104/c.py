@@ -7,7 +7,7 @@ sums = []
 for i in range(d):
     p,c = map(int, input().split())
     P.append(p)
-    C.append(c)
+    # C.append(c)
     sums.append(p * 100 * (i+1) + c)
 
 ans = 1e9
