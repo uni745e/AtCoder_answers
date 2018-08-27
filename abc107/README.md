@@ -28,6 +28,7 @@ https://beta.atcoder.jp/contests/abc107/tasks
 これ解いてたおかげでACできた。
 
 ## D
+WA  
 頑張って解説を理解する  
 わからなすぎてパスカルの三角形の任意の段の値を求めるコード書いてた
 
