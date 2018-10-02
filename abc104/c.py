@@ -1,31 +1,39 @@
-#coding:utf-8
+# coding:utf-8
 
-d,g = map(int, input().split())
-P = []
-C = []
-sums = []
-for i in range(d):
-    p,c = map(int, input().split())
+INF = float('inf')
+
+
+def inpl(): return list(map(int, input().split()))
+
+
+D, G = inpl()
+P, C = [], []
+for i in range(D):
+    p, c = inpl()
     P.append(p)
-    # C.append(c)
-    sums.append(p * 100 * (i+1) + c)
+    C.append(c + 100 * (i + 1) * p)
 
-ans = 1e9
-for mask in range(1 << d):
-    score = 0
-    num = 0
-    rest_max = -1
-    for i in range(d):
-        if mask >> i & 1:
-            score += sums[i]
-            num += P[i]
+ans = INF
+for i in range(2 ** D):
+    point = 0
+    cnt = 0
+    rest_max = 0
+    for shift in range(D):
+        if i >> shift & 1:
+            cnt += P[shift]
+            point += C[shift]
         else:
-            rest_max = i
-    if score < g:
-        tmp = 100 * (rest_max + 1)
-        need = (g - score + tmp - 1) // tmp
-        if need >= P[rest_max]: continue
-        num += need
-    ans = min(ans, num)
+            rest_max = shift
+
+    if point < G:
+        for j in range(P[rest_max]):
+            if point >= G:
+                break
+            cnt += 1
+            point += (rest_max + 1) * 100
+        else:
+            continue
+
+    ans = min(ans, cnt)
 
 print(ans)

@@ -1,19 +1,24 @@
-#coding:utf-8
+# coding:utf-8
 
-s = input()
+INF = float('inf')
 
+
+def inpl(): return list(map(int, input().split()))
+
+
+S = input()
 ans = 'AC'
-if s[0] != 'A': ans = 'WA'
+if S[0] != 'A': ans = 'WA'
 
-num_c = 0
-for c in s[2:-1]:
-    if c == 'C':
-        num_c += 1
+cnt = 0
+for s in S[2:-1]:
+    if s == 'C':
+        cnt += 1
     else:
-        if c.isupper():
+        if s.isupper():
             ans = 'WA'
-if num_c != 1: ans = 'WA'
 
-if s[-1].isupper(): ans = 'WA'
-if s[1].isupper(): ans = 'WA'
+if cnt != 1: ans = 'WA'
+if S[-1].isupper(): ans = 'WA'
+if S[1].isupper(): ans = 'WA'
 print(ans)
