@@ -1,6 +1,6 @@
-#coding:utf-8
+# coding:utf-8
 
-'''
+"""
 ナップザック問題
 
 例
@@ -16,33 +16,36 @@ input
 output
 91
 (3,6)と(5,85)を選んだときが最大
-'''
+"""
+
 
 def inpl(): return list(map(int, input().split()))
 
-def knapsack(N, W, weight, value):
-    #初期化
-    inf = float("inf")
-    dp = [[-inf for _ in range(W+1)] for _ in range(N+1)]
-    for i in range(W+1): dp[0][i] = 0
 
-    #DP
+def knapsack(N, W, weight, value):
+    # 初期化
+    inf = float("inf")
+    dp = [[-inf for _ in range(W + 1)] for _ in range(N + 1)]
+    for i in range(W + 1): dp[0][i] = 0
+
+    # DP
     for i in range(N):
-        for w in range(W+1):
+        for w in range(W + 1):
             if w >= weight[i]:
-                dp[i+1][w] = max(dp[i][w - weight[i]] + value[i], dp[i][w])
+                dp[i + 1][w] = max(dp[i][w - weight[i]] + value[i], dp[i][w])
             else:
-                dp[i+1][w] = dp[i][w]
+                dp[i + 1][w] = dp[i][w]
         # for j in range(N+1):
-            # print(i,dp[j][:])
+        # print(i,dp[j][:])
     return dp
+
 
 N, W = inpl()
 
 weight = []
 value = []
 for _ in range(N):
-    w,v = inpl()
+    w, v = inpl()
     weight.append(w)
     value.append(v)
 
